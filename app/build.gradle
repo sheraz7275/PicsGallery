@@ -1,0 +1,128 @@
+plugins {
+
+    id 'com.android.application'
+    id 'org.jetbrains.kotlin.android'
+    id 'kotlin-android'
+    id 'kotlin-parcelize'
+    id 'kotlin-kapt'
+    id 'dagger.hilt.android.plugin'
+    id 'androidx.navigation.safeargs'
+    id 'com.google.secrets_gradle_plugin' version '0.4'
+
+}
+
+android {
+    compileSdk 32
+
+    defaultConfig {
+        applicationId "com.example.picgallery"
+        minSdk 21
+        targetSdk 32
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+    buildFeatures {
+        viewBinding true
+        dataBinding = true
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+}
+
+dependencies {
+
+    implementation 'androidx.appcompat:appcompat:1.4.1'
+    implementation 'com.google.android.material:material:1.5.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.3'
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+
+
+
+    //Navigation Component
+    implementation 'androidx.navigation:navigation-fragment-ktx:2.4.1'
+    implementation 'androidx.navigation:navigation-ui-ktx:2.4.1'
+
+    // Life cycle and ViewModel
+    implementation 'androidx.lifecycle:lifecycle-livedata:2.0.0'
+    implementation 'androidx.lifecycle:lifecycle-viewmodel:2.0.0'
+    implementation 'androidx.lifecycle:lifecycle-extensions:2.2.0'
+    implementation 'androidx.lifecycle:lifecycle-runtime-ktx:2.4.1'
+
+    //ktx android
+    implementation 'androidx.core:core-ktx:1.7.0'
+    implementation 'androidx.fragment:fragment-ktx:1.4.1'
+    //coroutines
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.5.2'
+
+    //coroutines x for retrofit
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.5.2"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.5.2"
+
+    // coroutines adapter retrofit
+    implementation "com.jakewharton.retrofit:retrofit2-kotlin-coroutines-adapter:0.9.2"
+    //retrofit
+    implementation "com.squareup.retrofit2:retrofit:2.9.0"
+    // moshi
+    implementation "com.squareup.moshi:moshi:1.11.0"
+    // kotlin support for moshi
+    implementation "com.squareup.moshi:moshi-kotlin:1.11.0"
+    // retrofit support for moshi
+    implementation "com.squareup.retrofit2:converter-moshi:2.9.0"
+
+    //dagger hilt
+    implementation "com.google.dagger:hilt-android:2.41"
+    implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.4.1'
+    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.4.1'
+    implementation 'androidx.test:runner:1.4.0'
+    kapt "com.google.dagger:hilt-compiler:2.41"
+    // For Kotlin use paging-runtime-ktx
+    implementation("androidx.paging:paging-runtime-ktx:3.1.1")
+
+
+    // Glide image Caching
+    implementation "com.github.bumptech.glide:glide:4.12.0"
+    annotationProcessor "com.github.bumptech.glide:compiler:4.11.0"
+
+    testImplementation 'junit:junit:4.13.2'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.3'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
+
+    // Local Unit Tests
+    implementation "androidx.test:core:1.4.0"
+    testImplementation "junit:junit:4.13.2"
+    testImplementation "org.hamcrest:hamcrest-all:1.3"
+    testImplementation "androidx.arch.core:core-testing:2.1.0"
+    testImplementation "com.google.truth:truth:1.1.3"
+
+    testImplementation "org.mockito.kotlin:mockito-kotlin:4.0.0"
+    testImplementation "org.hamcrest:hamcrest-all:1.3"
+    testImplementation "com.google.truth:truth:1.1.3"
+
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.5.2"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.5.2"
+
+    // testImplementation for pure JVM unit tests
+    testImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:1.5.2"
+
+    // androidTestImplementation for Android instrumentation tests
+    androidTestImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:1.5.2"
+
+
+}
+kapt {
+    correctErrorTypes true
+}
