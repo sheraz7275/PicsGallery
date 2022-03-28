@@ -27,16 +27,11 @@ import kotlin.coroutines.CoroutineContext
 
 
 @ExperimentalCoroutinesApi
-class ImageListViewModelTest{
+class ImageListViewModelTest {
 
     private lateinit var dataSource: ImageDataSource
     private lateinit var repository: ImageRepository
     private lateinit var viewModel: ImageListViewModel
-
-
-
-
-
 
     @get:Rule
     var coroutinesTestRule = CoroutineTestRule()
@@ -44,19 +39,11 @@ class ImageListViewModelTest{
     @Test
     fun `image list stateFlow test - success`() = runBlockingTest {
 
-        dataSource=FakeDataSource()
-        repository=FakeRepository(dataSource)
-        viewModel= ImageListViewModel(repository)
+        dataSource = FakeDataSource()
+        repository = FakeRepository(dataSource)
+        viewModel = ImageListViewModel(repository)
 
-        val data= viewModel.imageList.first()
-
-
-
-
-
+        val data = viewModel.imageList.first()
 
     }
-
-
-
 }

@@ -9,8 +9,7 @@ import com.example.picgallery.dataSource.ImageDataSource
 import com.example.picgallery.utils.AppConst
 import kotlinx.coroutines.flow.Flow
 
-class FakeRepository(private val dataSource: ImageDataSource):ImageRepository {
-
+class FakeRepository(private val dataSource: ImageDataSource) : ImageRepository {
 
     override suspend fun getImageList(query: String): Flow<PagingData<Photo>> {
         return Pager(
